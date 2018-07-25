@@ -1,0 +1,46 @@
+package com.ecommerce.entity;
+
+import java.io.Serializable;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "ozelliktip")
+public class OzellikTip{
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long ozellikTipID;
+	@Column(nullable = false)
+	private String ad;
+	@Column(nullable = true)
+	private String aciklama;
+	@ManyToOne
+	@JoinColumn(name = "kategoriID", referencedColumnName="kategoriID")
+	private Kategori kategori;
+	public Long getOzellikTipID() {
+		return ozellikTipID;
+	}
+	public void setOzellikTipID(Long ozellikTipID) {
+		this.ozellikTipID = ozellikTipID;
+	}
+	public String getAd() {
+		return ad;
+	}
+	public void setAd(String ad) {
+		this.ad = ad;
+	}
+	public String getAciklama() {
+		return aciklama;
+	}
+	public void setAciklama(String aciklama) {
+		this.aciklama = aciklama;
+	}
+	public Kategori getKategori() {
+		return kategori;
+	}
+	public void setKategori(Kategori kategori) {
+		this.kategori = kategori;
+	}
+	
+	
+}

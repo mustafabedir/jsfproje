@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="X-UA-Conpatible" content="IE=edge" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+	<title>E Ticaret-Admin</title>
+	<style type="text/css">
+#formID {align ="center";
+	margin-top: 10px;
+	margin-right: 250px;
+	margin-left: 250px;
+}
+
+#btnKaydet {
+	margin-left: 790px;
+}
+#btnDuzenle {
+margin-top:-37px;
+	margin-left: 700px;
+}
+#dataTable {
+	margin-top: 10px;
+	margin-right: 100px;
+	margin-left: 100px;
+}
+</style>
+</h:head>
+<body>
+	<f:view>
+		<h:form id="formID">
+			<div class="form-group">
+				<h:outputLabel value="Ürün Açıklama" />
+				<h:inputText value="#{urunBean.urun.aciklama}"
+					class="form-control" />
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Alış Fiyat" />
+				<h:inputText value="#{urunBean.urun.alisFiyat}"
+					class="form-control" />
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Satış Fiyat" />
+				<h:inputText value="#{urunBean.urun.satisFiyat}"
+					class="form-control" />
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Ekleme Tarihi" />
+				<h:inputText value="#{urunBean.urun.eklemeTarihi}"
+					class="form-control" />
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Son Kullanma Tarihi" />
+				<h:inputText value="#{urunBean.urun.sonKullanmaTarihi}"
+					class="form-control" />
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Kategori" />
+				<h:inputText value="#{urunBean.urun.kategori}"
+					class="form-control" />
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Marka" />
+				<h:inputText value="#{urunBean.urun.marka}"
+					class="form-control" />
+			</div>
+			
+			<div id="btnKaydet">
+				<h:commandButton action="#{urunBean.kaydet()}" value="Kaydet" class="btn btn-success"/>
+			</div>
+			<div id="btnDuzenle">
+				<h:commandButton action="#{urunBean.duzenle()}" value="Duzenle" class="btn btn-primary"/>
+			</div>
+		</h:form>
+		<h:form>
+		<div id="dataTable">
+			<h:dataTable value="#{urunBean.urunListesi}" var="cls"
+				styleClass="table table-striped">
+				<h:column>
+					<f:facet name="header">ID</f:facet>
+					<h:outputLabel value="#{cls.urunID}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Açıklama</f:facet>
+					<h:outputLabel value="#{cls.aciklama}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Alış Fiyat</f:facet>
+					<h:outputLabel value="#{cls.alisFiyat}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Satış Fiyat</f:facet>
+					<h:outputLabel value="#{cls.satisFiyat}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Ekleme Tarihi</f:facet>
+					<h:outputLabel value="#{cls.eklemeTarihi}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Son Kullanma Tarihi</f:facet>
+					<h:outputLabel value="#{cls.sonKullanmaTarihi}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Kargo</f:facet>
+					<h:outputLabel value="#{cls.kargo}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Kargo Takip No</f:facet>
+					<h:outputLabel value="#{cls.kargoTakipNo}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Sil</f:facet>
+					<h:commandLink  action="#{satisBean.sil()}" value="Sil" class="btn btn-danger">
+						<f:setPropertyActionListener value="#{cls}"
+							target="#{satisBean.satis}"></f:setPropertyActionListener>
+					</h:commandLink>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Seç</f:facet>
+					<h:commandButton value="Seç" class="btn btn-primary">
+						<f:setPropertyActionListener value="#{cls}"
+							target="#{satisBean.satis}"></f:setPropertyActionListener>
+					</h:commandButton>
+				</h:column>
+			</h:dataTable>
+		</div>
+		</h:form>
+	</f:view>
+</body>
+</html>

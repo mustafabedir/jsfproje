@@ -1,0 +1,9 @@
+package com.ecommerce.entity;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "kullanici")
+public class Kullanici {
+
+}

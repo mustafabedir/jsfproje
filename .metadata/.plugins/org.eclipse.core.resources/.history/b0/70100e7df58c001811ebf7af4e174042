@@ -1,0 +1,73 @@
+package com.ecommerce.entity;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "urun")
+public class Urun{
+	private Long urunID;
+	private String aciklama;
+	private double alisFiyat;
+	private double satisFiyat;
+	private Date eklemeTarihi;
+	private Date sonKullanmaTarihi;
+	@ManyToOne
+	@JoinColumn(name = "kategoriID", referencedColumnName="kategoriID")
+	private Kategori kategori;
+	@ManyToOne
+	@JoinColumn(name = "markaID", referencedColumnName="markaID")
+	private Marka marka;
+	public Long getUrunID() {
+		return urunID;
+	}
+	public void setUrunID(Long urunID) {
+		this.urunID = urunID;
+	}
+	public String getAciklama() {
+		return aciklama;
+	}
+	public void setAciklama(String aciklama) {
+		this.aciklama = aciklama;
+	}
+	public double getAlisFiyat() {
+		return alisFiyat;
+	}
+	public void setAlisFiyat(double alisFiyat) {
+		this.alisFiyat = alisFiyat;
+	}
+	public double getSatisFiyat() {
+		return satisFiyat;
+	}
+	public void setSatisFiyat(double satisFiyat) {
+		this.satisFiyat = satisFiyat;
+	}
+	public Date getEklemeTarihi() {
+		return eklemeTarihi;
+	}
+	public void setEklemeTarihi(Date eklemeTarihi) {
+		this.eklemeTarihi = eklemeTarihi;
+	}
+	public Date getSonKullanmaTarihi() {
+		return sonKullanmaTarihi;
+	}
+	public void setSonKullanmaTarihi(Date sonKullanmaTarihi) {
+		this.sonKullanmaTarihi = sonKullanmaTarihi;
+	}
+	public Kategori getKategori() {
+		return kategori;
+	}
+	public void setKategori(Kategori kategori) {
+		this.kategori = kategori;
+	}
+	public Marka getMarka() {
+		return marka;
+	}
+	public void setMarka(Marka marka) {
+		this.marka = marka;
+	}
+	
+	
+}

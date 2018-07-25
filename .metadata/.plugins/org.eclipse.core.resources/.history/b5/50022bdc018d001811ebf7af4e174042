@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+ <managed-bean>
+  <managed-bean-name>kullaniciBean</managed-bean-name>
+  <managed-bean-class>com.ecommerce.bean.KullaniciBean</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>adresBean</managed-bean-name>
+  <managed-bean-class>com.ecommerce.bean.AdresBean</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>kargoBean</managed-bean-name>
+  <managed-bean-class>com.ecommerce.bean.KargoBean</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>kategoriBean</managed-bean-name>
+  <managed-bean-class>com.ecommerce.bean.KategoriBean</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>markaBean</managed-bean-name>
+  <managed-bean-class>com.ecommerce.bean.MarkaBean</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>musteriBean</managed-bean-name>
+  <managed-bean-class>com.ecommerce.bean.MusteriBean</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>ozellikDegerBean</managed-bean-name>
+  <managed-bean-class>com.ecommerce.bean.OzellikDegerBean</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>ozellikTipBean</managed-bean-name>
+  <managed-bean-class>com.ecommerce.bean.OzellikTipBean</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <navigation-rule>
+  <from-view-id>/Login.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>Admin</from-outcome>
+   <to-view-id>/Admin.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>Hata</from-outcome>
+   <to-view-id>/Login.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+</faces-config>

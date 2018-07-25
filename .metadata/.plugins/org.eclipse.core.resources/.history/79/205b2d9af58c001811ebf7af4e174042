@@ -1,0 +1,58 @@
+package com.ecommerce.entity;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "satisdetay")
+public class SatisDetay{
+	@Id
+	@GeneratedValue(strategy =GenerationType.AUTO)
+	private Long satisDetayID;
+	@ManyToOne
+	@JoinColumn(name = "satisID", referencedColumnName="satisID")
+	private Satis satis;
+	@ManyToOne
+	@JoinColumn(name = "urunID", referencedColumnName="urunID")
+	private Urun urun;
+	private Integer adet;
+	private double fiyat;
+	private double indirim;
+	public Long getSatisDetayID() {
+		return satisDetayID;
+	}
+	public void setSatisDetayID(Long satisDetayID) {
+		this.satisDetayID = satisDetayID;
+	}
+	public Satis getSatis() {
+		return satis;
+	}
+	public void setSatis(Satis satis) {
+		this.satis = satis;
+	}
+	public Urun getUrun() {
+		return urun;
+	}
+	public void setUrun(Urun urun) {
+		this.urun = urun;
+	}
+	public Integer getAdet() {
+		return adet;
+	}
+	public void setAdet(Integer adet) {
+		this.adet = adet;
+	}
+	public double getFiyat() {
+		return fiyat;
+	}
+	public void setFiyat(double fiyat) {
+		this.fiyat = fiyat;
+	}
+	public double getIndirim() {
+		return indirim;
+	}
+	public void setIndirim(double indirim) {
+		this.indirim = indirim;
+	}
+	
+
+}
